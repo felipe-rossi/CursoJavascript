@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Primeiros estudos com DOM</title>
+    <style>
+        body{
+            background-color:cornflowerblue;
+            color: white;
+            font: normal 14pt Arial;
+        }
+    </style>
+</head>
+<body>
+    <h1>Iniciando estudos com DOM</h1>
+    <p>Aqui vai o resultado</p>
+    <p>Aprendendo a usar <strong>DOM</strong> em Javascript</p>
+    <div id="msg">Clique em mim</div>
+
+    <script>
+        var corpo = window.document.body;
+        corpo.style.background = 'black';
+
+        var p1 = window.document.getElementsByTagName("p")[0];
+        document.write("Parágrafo 1 está escrito assim: " + p1.innerText + "<br>"); // innerText pega o elemento sem a formatação
+        p1.style.color = 'blue';
+
+        var p2 = window.document.getElementsByTagName("p")[1];
+        document.write(p2.innerHTML); // Com innerHTML eu o contéudo com a formatação do HTML, nesse caso ele puxou a palavra DOM em negrito
+
+        var div = window.document.getElementById("msg");    
+        div.style.backgroundColor = 'green';
+
+        // Usando Query Selector
+        var d = window.document.querySelector("div#msg"); // id usa # e class .
+        d.style.color = 'yellow';
+        </script>
+</body>
+</html>

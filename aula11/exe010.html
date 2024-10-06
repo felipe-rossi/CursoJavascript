@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DETRAN</title>
+
+    <style>
+        div{
+            color: white;
+            width: 100%;
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Sistemas de Multas</h1>
+    Velocidade do Veículo: <input type="number" name="velVeiculo" id="velVeiculo">
+    <button id="verificar" value="verificar">Verificar</button><br><br>
+    <div id="resultado">
+        Resultado
+    </div>
+
+    <script>
+        var inputVelVeiculo = document.getElementById("velVeiculo");
+        var btnVerificar = document.getElementById("verificar");
+        var divResultado = document.getElementById("resultado");
+
+        btnVerificar.addEventListener("click", verificarVelocidade);
+
+
+        divResultado.innerText = "";
+        divResultado.style.backgroundColor = "white";
+
+        function verificarVelocidade() {
+            var velocidadeConvertida = Number(inputVelVeiculo.value);
+            console.log(velocidadeConvertida);
+
+            if(velocidadeConvertida > 60){
+                divResultado.style.backgroundColor = 'red';
+                divResultado.innerText = `Você ultrapassou a velocidade permitida, sua velocidade é de: ${velocidadeConvertida}Km/h`;
+            }else{
+                divResultado.style.backgroundColor = 'green';
+                divResultado.innerText = `Você está dirigindo na velocidade permitida, parabéns, sua velocidade é de: ${velocidadeConvertida}Km/h`;
+            }
+        }
+    </script>
+</body>
+</html>

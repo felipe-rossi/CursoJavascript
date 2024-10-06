@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: cornflowerblue;
+            color: cornsilk;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Título</h1>
+    <p>Contéudo</p>
+    <script>
+
+        // Para converter em float basta utilizar o parseFloat
+        // Podemos utlizar apenas o Number sem o parseInt ou Float
+        var n1 = Number(window.prompt("Digite um número: ")); // Convertendo String em número inteiro
+        var n2 = Number(window.prompt("Digite outro número: ")); // Convertendo String em número inteiro
+
+        var soma = n1 + n2;
+        window.alert("A soma dos números é igual: " + soma);
+
+        // Uma forma mais fácil de imprimir variáveis é utilizando a crase `${nome_variavel}`
+        var nome = "Felipe Rossi";
+        var idade = 27;
+        var nota = 9;
+        
+        window.alert(`O aluno ${nome} com a idade ${idade} tirou a nota ${nota}`);
+        
+
+    </script>
+</body>
+</html>

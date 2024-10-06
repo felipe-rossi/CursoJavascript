@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <style>
+        body{
+            background-color: #3E83D8;
+            font-family:Arial, Helvetica, sans-serif;
+        }
+
+        h1{
+            color: white;
+            font-weight: bolder;
+            width: 100%;
+            text-align: center;
+        }
+
+        div.form{
+            background-color: white;
+            width: 50%;
+            position: absolute;
+            top: 35%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            text-align: center;
+            border-radius: 20px;
+            
+        }
+
+        button{
+            border-radius: 5px;
+            margin: 0px 0px 10px 0px;
+            font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            height: 30px;
+        }
+
+        div{
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Verificador de Idade</h1>
+    </header>
+    
+    <section>
+        <div class="form">
+            <h4>Ano de Nascimento</h4><input type="date" name="inputNascimento" id="inputNascimento" required>
+
+            <h4>Sexo</h4>
+            <input type="radio" name="radioSexo" id="radioSexoMasculino" checked>Masculino
+            <input type="radio" name="radioSexo" id="radioSexoFeminino">Feminino<br><br>
+
+            <button id="btnVerificar">Verificar</button>
+    
+            <div class="resultado" id="resultado">
+    
+            </div>
+        </div>
+    </section>
+
+    <footer>
+
+    </footer>
+
+    <script>
+        var inputNascimento = document.getElementById("inputNascimento");
+        var btnVerificar = document.getElementById("btnVerificar");
+        var agora = new Date;
+        var divResultado = document.getElementById("resultado");
+        
+        btnVerificar.addEventListener("click", verificarIdade);
+        
+        divResultado.innerText = "";
+
+        function verificarIdade() {
+            var anoAtual = Number(agora.getFullYear().toString());
+            var dataNascimento = inputNascimento.value;
+            var anoNascimento = Number(dataNascimento.substring(0, 4));
+            var radioSex = document.getElementsByName("radioSexo");
+
+
+            var idadeCliente = anoAtual - anoNascimento;
+
+            if(anoNascimento > anoAtual){
+                window.alert("Por favor verifique as informações inseridas");
+            }else if(radioSex[0].checked){
+                if(idadeCliente > 0 && idadeCliente <= 10){
+                    // Criança
+                    img.setAttribute('src', 'imagem1.png');
+                }else if(idadeCliente < 21){
+                    // Jovem
+                    img.setAttribute('src', 'imagem2.png');
+                }else if(idadeCliente < 50){
+                    // Adulto
+                    img.setAttribute('src', 'imagem3.png');
+                }else{
+                    // Idoso
+                    img.setAttribute('src', 'imagem4.png');
+                }
+
+                divResultado.innerText = `Você tem ${idadeCliente} ano(s) e é do sexo Masculino`;
+            }else{
+
+                if(idadeCliente > 0 && idadeCliente <= 10){
+                    // Criança
+                    img.setAttribute('src', 'imagem4.png');
+                }else if(idadeCliente < 21){
+                    // Jovem
+                    img.setAttribute('src', 'imagem5.png');
+                }else if(idadeCliente < 50){
+                    // Adulto
+                    img.setAttribute('src', 'imagem6.png');
+                }else{
+                    // Idoso
+                    img.setAttribute('src', 'imagem7.png');
+                }
+
+                divResultado.innerText = `Você tem ${idadeCliente} ano(s) e é do sexo Feminino`;
+            }
+        }
+
+        var img = document.createElement("img");
+        img.setAttribute("id", "foto");
+        
+    </script>
+</body>
+</html>
