@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <style>
+        body{
+            background-color: #3E83D8;
+            font-family:Arial, Helvetica, sans-serif;
+        }
+
+        h1{
+            color: white;
+            font-weight: bolder;
+            width: 100%;
+            text-align: center;
+        }
+
+        div.form{
+            background-color: white;
+            width: 50%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            text-align: center;
+            border-radius: 20px;
+            
+        }
+
+        button{
+            border-radius: 5px;
+            font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            height: 30px;
+            margin-top: 1rem;
+        }
+
+        div{
+            margin-bottom: 5px;
+        }
+
+        img{   
+            width: 250px ;
+            border-radius: 20px;
+        
+        }
+
+        div.resultado{
+            margin-top: 1rem;
+        }
+
+    
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Tabuada</h1>
+    </header>
+    
+    <section>
+        <div class="form">
+            <h4>Número: </h4><input type="number" name="inputNumero" id="inputNumero" required>
+
+            <button id="btnGerarTabuada">Gerar Tabuada</button><br><br>
+    
+            <select id="selectTabuada" size="10">
+                
+            </select>
+        </div>
+    </section>
+
+    <footer>
+
+    </footer>
+
+    <script>
+        var inputNumero = document.getElementById("inputNumero");
+        var btnGerarTabuada = document.getElementById("btnGerarTabuada");
+        var selectTabuada = document.getElementById("selectTabuada");
+
+        btnGerarTabuada.addEventListener("click", gerarTabuada);
+        
+
+
+        function gerarTabuada() {
+            selectTabuada.innerText = "";
+            var numero = Number(inputNumero.value);
+
+            if (!numero) {
+                window.alert("Por favor preencha com os valores corretos");
+            }else{
+                for (let i = 1; i <= 10; i++){
+                    let option = document.createElement("option");
+                    option.text = `${numero} x ${i} = ${numero * i}`
+                    selectTabuada.appendChild(option);
+                }
+            }
+
+           
+        }
+        
+    </script>
+</body>
+</html>

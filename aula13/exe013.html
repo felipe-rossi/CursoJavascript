@@ -22,7 +22,7 @@
             background-color: white;
             width: 50%;
             position: absolute;
-            top: 35%;
+            top: 50%;
             left: 50%;
             transform: translate(-50%,-50%);
             text-align: center;
@@ -39,6 +39,12 @@
 
         div{
             margin-bottom: 5px;
+        }
+
+        img{   
+            width: 250px ;
+            border-radius: 20px;
+        
         }
     </style>
 </head>
@@ -86,46 +92,52 @@
 
             var idadeCliente = anoAtual - anoNascimento;
 
-            if(anoNascimento > anoAtual){
+            var img = document.createElement("img");
+            img.setAttribute("id", "foto");
+
+            if(anoNascimento >= anoAtual || !dataNascimento){
                 window.alert("Por favor verifique as informações inseridas");
             }else if(radioSex[0].checked){
+
                 if(idadeCliente > 0 && idadeCliente <= 10){
                     // Criança
-                    img.setAttribute('src', 'imagem1.png');
+                    console.log("Estou no if da criança masculino");
+                    img.setAttribute('src', '/aula13/imagens/crianca_menino.jpg');
                 }else if(idadeCliente < 21){
                     // Jovem
-                    img.setAttribute('src', 'imagem2.png');
+                    img.setAttribute('src', '/aula13/imagens/jovem_menino.jpg');
                 }else if(idadeCliente < 50){
                     // Adulto
-                    img.setAttribute('src', 'imagem3.png');
+                    img.setAttribute('src', '/aula13/imagens/homem.jpg');
                 }else{
                     // Idoso
-                    img.setAttribute('src', 'imagem4.png');
+                    img.setAttribute('src', '/aula13/imagens/idoso.jpg');
                 }
 
-                divResultado.innerText = `Você tem ${idadeCliente} ano(s) e é do sexo Masculino`;
+                divResultado.innerHTML = `Você tem ${idadeCliente} ano(s) e é do sexo Masculino<br>`;
             }else{
 
                 if(idadeCliente > 0 && idadeCliente <= 10){
                     // Criança
-                    img.setAttribute('src', 'imagem4.png');
+                    img.setAttribute('src', '/aula13/imagens/crianca_menina.jpg');
                 }else if(idadeCliente < 21){
                     // Jovem
-                    img.setAttribute('src', 'imagem5.png');
+                    img.setAttribute('src', '/aula13/imagens//jovem_menina.jpg');
                 }else if(idadeCliente < 50){
                     // Adulto
-                    img.setAttribute('src', 'imagem6.png');
+                    img.setAttribute('src', '/aula13/imagens/mulher.jpg');
                 }else{
                     // Idoso
-                    img.setAttribute('src', 'imagem7.png');
+                    img.setAttribute('src', '/aula13/imagens/idosa.jpg');
                 }
 
-                divResultado.innerText = `Você tem ${idadeCliente} ano(s) e é do sexo Feminino`;
+                divResultado.innerHTML = `Você tem ${idadeCliente} ano(s) e é do sexo Feminino<br>`;
             }
+
+            divResultado.appendChild(img);
         }
 
-        var img = document.createElement("img");
-        img.setAttribute("id", "foto");
+        
         
     </script>
 </body>

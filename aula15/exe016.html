@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <style>
+        body{
+            background-color: #3E83D8;
+            font-family:Arial, Helvetica, sans-serif;
+        }
+
+        h1{
+            color: white;
+            font-weight: bolder;
+            width: 100%;
+            text-align: center;
+        }
+
+        div.form{
+            background-color: white;
+            width: 50%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            text-align: center;
+            border-radius: 20px;
+            
+        }
+
+        button{
+            border-radius: 5px;
+            font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            height: 30px;
+        }
+
+        div{
+            margin-bottom: 5px;
+        }
+
+        img{   
+            width: 250px ;
+            border-radius: 20px;
+        
+        }
+
+        div.resultado{
+            margin-top: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Vamos contar</h1>
+    </header>
+    
+    <section>
+        <div class="form">
+            <h4>Início</h4><input type="number" name="inputInicio" id="inputInicio" required>
+            <h4>Fim</h4><input type="number" name="inputFim" id="inputFim" required>
+            <h4>Passo</h4><input type="number" name="inputPasso" id="inputPasso" required><br><br>
+
+            <button id="btnContar">Contar</button>
+    
+            <div class="resultado" id="resultado">
+    
+            </div>
+        </div>
+    </section>
+
+    <footer>
+
+    </footer>
+
+    <script>
+        var inputInicio = document.getElementById("inputInicio");
+        var inputFim = document.getElementById("inputFim");
+        var inputPasso = document.getElementById("inputPasso");
+        var btnContar = document.getElementById("btnContar");
+        var divResultado = document.getElementById("resultado");
+
+        btnContar.addEventListener("click", contar);
+        
+
+
+        function contar() {
+            divResultado.innerText = "";
+
+            var inicio = Number(inputInicio.value);
+            var fim = Number(inputFim.value);
+            var passo = Number(inputPasso.value);
+
+            if (!inicio || !fim || !passo) {
+                window.alert("Por favor preencha com os valores corretos");
+            }else{
+                for (let i = inicio; i <= fim; i+=passo){
+                    divResultado.append(i);
+                    divResultado.append(" - ");
+                }
+            }
+
+           
+        }
+
+        
+        
+    </script>
+</body>
+</html>
